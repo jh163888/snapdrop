@@ -1,24 +1,13 @@
-version: "3"
+version: "3.2"
 services:
-  node:
-    image: "node:lts-alpine"
-    user: "node"
+  snapdropnode:
+    image: node:lts-alpine
+    container_name: snapdropnode
+    user: node
     working_dir: /home/node/app
     volumes:
       - ./server/:/home/node/app
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: host
     command: ash -c "npm i && node index.js"
-  nginx:
-    build:
-      context: ./docker/
-      dockerfile: nginx-with-openssl.Dockerfile
-    image: "nginx-with-openssl"
-    volumes:
-      - ./client:/usr/share/nginx/html
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./docker/certs:/etc/ssl/certs
-      - ./docker/openssl:/mnt/openssl
-    ports:
-      - "18080:80"
-    env_file: ./docker/fqdn.env
-    entrypoint: /mnt/openssl/create.sh
-    command: ["nginx", "-g", "daemon off;"]
+    restart: always
