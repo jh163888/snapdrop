@@ -2,6 +2,7 @@
 
 [Snapdrop](https://snapdrop.net): local file sharing in your browser. Inspired by Apple's Airdrop.
 
+以下所有内容均为作者原版，任何利益相关均为修改，请支持原作者，本人仅提供汉化。
 
 #### Snapdrop is built with the following awesome technologies:
 * Vanilla HTML5 / ES6 / CSS3 frontend
