@@ -9,7 +9,7 @@ window.iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 Events.on('display-name', e => {
     const me = e.detail.message;
     const $displayName = $('displayName')
-    $displayName.textContent = 'You are known as ' + me.displayName;
+    $displayName.textContent = '您的昵称为 ' + me.displayName;
     $displayName.title = me.deviceName;
 });
 
@@ -74,7 +74,7 @@ class PeerUI {
 
     html() {
         return `
-            <label class="column center" title="Click to send files or right click to send a text">
+            <label class="column center" title="请点击以发送文件或右键点击以发送信息">
                 <input type="file" multiple>
                 <x-icon shadow="1">
                     <svg class="icon"><use xlink:href="#"/></svg>
@@ -368,7 +368,7 @@ class ReceiveTextDialog extends Dialog {
 
     async _onCopy() {
         await navigator.clipboard.writeText(this.$text.textContent);
-        Events.fire('notify-user', 'Copied to clipboard');
+        Events.fire('notify-user', '已复制到剪贴板');
     }
 }
 
@@ -405,10 +405,10 @@ class Notifications {
     _requestPermission() {
         Notification.requestPermission(permission => {
             if (permission !== 'granted') {
-                Events.fire('notify-user', Notifications.PERMISSION_ERROR || 'Error');
+                Events.fire('notify-user', Notifications.PERMISSION_ERROR || '错误');
                 return;
             }
-            this._notify('Even more snappy sharing!');
+            this._notify('更加轻松的共享!');
             this.$button.setAttribute('hidden', 1);
         });
     }
@@ -437,16 +437,16 @@ class Notifications {
 
     _messageNotification(message) {
         if (isURL(message)) {
-            const notification = this._notify(message, 'Click to open link');
+            const notification = this._notify(message, '点击以打开链接');
             this._bind(notification, e => window.open(message, '_blank', null, true));
         } else {
-            const notification = this._notify(message, 'Click to copy text');
+            const notification = this._notify(message, '点击以复制文本');
             this._bind(notification, e => this._copyText(message, notification));
         }
     }
 
     _downloadNotification(message) {
-        const notification = this._notify(message, 'Click to download');
+        const notification = this._notify(message, '点击以下载');
         if (!window.isDownloadSupported) return;
         this._bind(notification, e => this._download(notification));
     }
@@ -459,7 +459,7 @@ class Notifications {
     _copyText(message, notification) {
         notification.close();
         if (!navigator.clipboard.writeText(message)) return;
-        this._notify('Copied text to clipboard');
+        this._notify('文本已复制到剪贴板');
     }
 
     _bind(notification, handler) {
@@ -483,11 +483,11 @@ class NetworkStatusUI {
     }
 
     _showOfflineMessage() {
-        Events.fire('notify-user', 'You are offline');
+        Events.fire('notify-user', '您已脱机');
     }
 
     _showOnlineMessage() {
-        Events.fire('notify-user', 'You are back online');
+        Events.fire('notify-user', '您已恢复在线');
     }
 }
 
@@ -617,10 +617,8 @@ Events.on('load', () => {
 });
 
 Notifications.PERMISSION_ERROR = `
-Notifications permission has been blocked
-as the user has dismissed the permission prompt several times.
-This can be reset in Page Info
-which can be accessed by clicking the lock icon next to the URL.`;
+由于用户多次忽略通知权限导致该权限被拒绝，
+可通过点击网页地址栏左边的锁型图标中的页面信息重设权限`;
 
 document.body.onclick = e => { // safari hack to fix audio
     document.body.onclick = null;

@@ -12,8 +12,8 @@
     <meta name="apple-mobile-web-app-capable" content="no">
     <meta name="apple-mobile-web-app-title" content="Snapdrop">
     <!-- Descriptions -->
-    <meta name="description" content="Instantly share images, videos, PDFs, and links with people nearby. Peer2Peer and Open Source. No Setup, No Signup.">
-    <meta name="keywords" content="File, Transfer, Share, Peer2Peer">
+    <meta name="description" content="立即与附近的人共享图像、视频、PDF和链接。基于P2P技术并遵循开源协议。 无需设置，无需注册。">
+    <meta name="keywords" content="文件, 传输, 共享, P2P">
     <meta name="author" content="RobinLinus">
     <meta property="og:title" content="Snapdrop">
     <meta property="og:type" content="article">
@@ -21,8 +21,8 @@
     <meta property="og:author" content="https://facebook.com/RobinLinus">
     <meta name="twitter:author" content="@RobinLinus">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Instantly share images, videos, PDFs, and links with people nearby. Peer2Peer and Open Source. No Setup, No Signup.">
-    <meta name="og:description" content="Instantly share images, videos, PDFs, and links with people nearby. Peer2Peer and Open Source. No Setup, No Signup.">
+    <meta name="twitter:description" content="立即与附近的人共享图像、视频、PDF和链接。基于P2P技术并遵循开源协议。 无需设置，无需注册。">
+    <meta name="og:description" content="立即与附近的人共享图像、视频、PDF和链接。基于P2P技术并遵循开源协议。 无需设置，无需注册。">
     <!-- Icons -->
     <link rel="icon" sizes="96x96" href="images/favicon-96x96.png">
     <link rel="shortcut icon" href="images/favicon-96x96.png">
@@ -38,22 +38,22 @@
 
 <body translate="no">
     <header class="row-reverse">
-        <a href="#about" class="icon-button" title="About Snapdrop">
+        <a href="#about" class="icon-button" title="关于 Snapdrop">
             <svg class="icon">
                 <use xlink:href="#info-outline" />
             </svg>
         </a>
-        <a href="#" id="theme" class="icon-button" title="Switch Darkmode/Lightmode" >
+        <a href="#" id="theme" class="icon-button" title="切换 日/夜间模式" >
             <svg class="icon">
                 <use xlink:href="#icon-theme" />
             </svg>
         </a>
-        <a href="#" id="notification" class="icon-button" title="Enable Notifications" hidden>
+        <a href="#" id="notification" class="icon-button" title="启用通知" hidden>
             <svg class="icon">
                 <use xlink:href="#notifications" />
             </svg>
         </a>
-        <a href="#" id="install" class="icon-button" title="Install Snapdrop" hidden>
+        <a href="#" id="install" class="icon-button" title="安装 Snapdrop" hidden>
             <svg class="icon">
                 <use xlink:href="#homescreen" />
             </svg>
@@ -62,31 +62,31 @@
     <!-- Peers -->
     <x-peers class="center"></x-peers>
     <x-no-peers>
-        <h2>Open Snapdrop on other devices to send files</h2>
+        <h2>请在局域网其他设备上打开 Snapdrop 以传输文件</h2>
     </x-no-peers>
-    <x-instructions desktop="Click to send files or right click to send a message" mobile="Tap to send files or long tap to send a message"></x-instructions>
+    <x-instructions desktop="请点击以发送文件或右键点击以发送信息" mobile="请点击以发送文件或长按以发送信息"></x-instructions>
     <!-- Footer -->
     <footer class="column">
         <svg class="icon logo">
             <use xlink:href="#wifi-tethering" />
         </svg>
-        <div id="displayName" placeholder="The easiest way to transfer data across devices"></div>
-        <div class="font-body2">You can be discovered by everyone on this network</div>
+        <div id="displayName" placeholder="以最轻松的方式在您的各个设备间传输数据"></div>
+        <div class="font-body2">允许我被所有的局域网用户发现</div>
     </footer>
     <!-- Receive Dialog -->
     <x-dialog id="receiveDialog">
         <x-background class="full center">
             <x-paper shadow="2">
-                <h3>File Received</h3>
-                <div class="font-subheading" id="fileName">Filename</div>
+                <h3>收到一份文件</h3>
+                <div class="font-subheading" id="fileName">文件名</div>
                 <div class="font-body2" id="fileSize"></div>
                 <div class="row">
-                    <label for="autoDownload" class="grow">Ask to save each file before downloading</label>
+                    <label for="autoDownload" class="grow">下载前要求保存每个文件</label>
                     <input type="checkbox" id="autoDownload" checked="">
                 </div>
                 <div class="row-reverse">
-                    <a class="button" close id="download" title="Download File" autofocus>Save</a>
-                    <button class="button" close>Ignore</button>
+                    <a class="button" close id="download" title="下载文件" autofocus>下载</a>
+                    <button class="button" close>忽略</button>
                 </div>
             </x-paper>
         </x-background>
@@ -96,11 +96,11 @@
         <form action="#">
             <x-background class="full center">
                 <x-paper shadow="2">
-                    <h3>Send a Message</h3>
-                    <div id="textInput" class="textarea" role="textbox" placeholder="Send a message" autocomplete="off" autofocus contenteditable></div>
+                    <h3>发送一条信息</h3>
+                    <div id="textInput" class="textarea" role="textbox" placeholder="请键入需要发送的信息" autocomplete="off" autofocus contenteditable></div>
                     <div class="row-reverse">
-                        <button class="button" type="submit" close>Send</button>
-                        <a class="button" close>Cancel</a>
+                        <button class="button" type="submit" close>发送</button>
+                        <a class="button" close>取消</a>
                     </div>
                 </x-paper>
             </x-background>
@@ -110,18 +110,18 @@
     <x-dialog id="receiveTextDialog">
         <x-background class="full center">
             <x-paper shadow="2">
-                <h3>Message Received</h3>
+                <h3>收到一条信息</h3>
                 <div class="font-subheading" id="text"></div>
                 <div class="row-reverse">
-                    <button class="button" id="copy" close autofocus>Copy</button>
-                    <button class="button" close>Close</button>
+                    <button class="button" id="copy" close autofocus>复制</button>
+                    <button class="button" close>关闭</button>
                 </div>
             </x-paper>
         </x-background>
     </x-dialog>
     <!-- Toast -->
     <div class="toast-container full center">
-        <x-toast class="row" shadow="1" id="toast">File Transfer Completed</x-toast>
+        <x-toast class="row" shadow="1" id="toast">文件传输完成</x-toast>
     </div>
     <!-- About Page -->
     <x-about id="about" class="full center column">
@@ -137,7 +137,7 @@
                 <use xlink:href="#wifi-tethering" />
             </svg>
             <h1>Snapdrop</h1>
-            <div class="font-subheading">The easiest way to transfer files across devices</div>
+            <div class="font-subheading">以最轻松的方式在您的各个设备间传输数据</div>
             <div class="row">
                 <a class="icon-button" target="_blank" href="https://github.com/RobinLinus/snapdrop" title="Snapdrop on Github" rel="noreferrer">
                     <svg class="icon">
@@ -221,8 +221,8 @@
     <!-- no script -->
     <noscript>
         <x-noscript class="full center column">
-            <h1>Enable JavaScript</h1>
-            <h3>Snapdrop works only with JavaScript</h3>
+            <h1>启用 Javascript</h1>
+            <h3>Snapdrop 只能工作在 Javascript 下</h3>
         </x-noscript>
         <style>
         x-noscript {
